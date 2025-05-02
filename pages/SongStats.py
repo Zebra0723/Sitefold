@@ -1,43 +1,33 @@
-# SongStats.py – drilldown song stats
 import streamlit as st
 import pandas as pd
-from utils.storage import load_lb, load_hall
-from utils.effects import get_rank_emoji
-from utils.state import init_state
+import os
 
-init_state()
-st.set_page_config(page_title="Song Stats", layout="centered")
+st.set_page_config(page_title="Song Stats")
 st.title("📊 Song Stats")
-st.caption("Check performance history of any song in the arena.")
 
-lb = load_lb()
-if lb.empty:
-    st.info("No data yet.")
-    st.stop()
+file = "data/leaderboard.csv"
+if not os.path.exists(file):
+    st.info("No data yet."); st.stop()
 
-songs = sorted(set(lb["Song A"]) | set(lb["Song B"]))
+df = pd.read_csv(file)
+songs = sorted(set(df["Song A"]).union(df["Song B"]))
 choice = st.selectbox("Choose a song", songs)
 
-filtered = lb[(lb["Song A"] == choice) | (lb["Song B"] == choice)]
-
+filtered = df[(df["Song A"] == choice) | (df["Song B"] == choice)]
 wins = (filtered["Winner"] == choice).sum()
 total = len(filtered)
-avg_score = filtered.loc[(filtered["Song A"] == choice), "Score A"].mean()
-avg_score_b = filtered.loc[(filtered["Song B"] == choice), "Score B"].mean()
-avg_score = round((avg_score + avg_score_b) / 2, 2)
+
+scoreA = filtered.loc[filtered["Song A"] == choice, "Score A"].mean()
+scoreB = filtered.loc[filtered["Song B"] == choice, "Score B"].mean()
+avg_score = round((scoreA + scoreB) / 2, 2) if not pd.isna(scoreA) and not pd.isna(scoreB) else "–"
 
 st.markdown(f"""
-### 🎶 {choice}
-- ✅ Battles: **{total}**
-- 🏆 Wins: **{wins}**
-- 📈 Avg Score: **{avg_score}**
+### {choice}
+- 🏆 Wins: {wins}
+- 🧠 Battles: {total}
+- 📈 Avg Score: {avg_score}
 """)
 
-hall = load_hall()
-if choice in hall["Song"].values:
-    crown = hall.loc[hall["Song"] == choice, "Win Count"].values[0]
-    emoji = get_rank_emoji(crown)
-    st.markdown(f"👑 **Legend Tier:** {emoji} ({crown} wins)")
-
-if st.checkbox("🔍 Show Full Battle Log"):
+if st.checkbox("Show full history"):
     st.dataframe(filtered.sort_values("Time", ascending=False), use_container_width=True)
+
