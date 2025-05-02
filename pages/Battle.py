@@ -1,108 +1,75 @@
 import streamlit as st
-st.set_page_config(page_title="Battle")  # 🔥 This line is required!
-
-st.title("🎤 Arena Battle")
-st.write("The arena is now live. You’re inside Battle.py!")
-import streamlit as st
-st.set_page_config(page_title="Battle")  # THIS IS REQUIRED
-
-st.title("🎤 Arena Battle")
-st.write("You made it to the BATTLE page!")
-# pages/Battle.py — Fully Debugged Arena Battle Page
-
-import streamlit as st
-import pandas as pd
 from datetime import datetime
 import random
+import pandas as pd
 import os
 
-from utils.state import init_state, pick_two_songs
-from utils.logic import rating_fields, BOSS_SONGS, total_score
-from utils.storage import load_lb, save_lb, load_hall, save_hall
-from utils.effects import show_confetti, boss_fight_effect, get_rank_emoji
+# Config
+st.set_page_config(page_title="Battle")
 
-init_state()
+# Ratings + song list
+rating_fields = ["Originality", "Energy", "Lyrics", "Vocals", "Production"]
+default_songs = [
+    {"title": "Echo Drive", "artist": "Nova", "genre": "Synthwave"},
+    {"title": "Firestorm", "artist": "Riotrix", "genre": "Hardstyle"},
+    {"title": "Neon Bloom", "artist": "Glowkit", "genre": "Electro"},
+    {"title": "Moonlight Bass", "artist": "Lunara", "genre": "Chill"},
+]
 
-st.title("🎤 Arena Battle")
-st.caption("Rate two songs. Boss tracks may appear...")
+# Load/create leaderboard
+file = "data/leaderboard.csv"
+if not os.path.exists(file):
+    pd.DataFrame(columns=["Time", "Song A", "Song B", "Winner", "Score A", "Score B"]).to_csv(file, index=False)
+
+df = pd.read_csv(file)
+
+# Pick 2 songs
+if "songs" not in st.session_state:
+    st.session_state.songs = default_songs.copy()
+
+if "battle" not in st.session_state:
+    st.session_state.battle = random.sample(st.session_state.songs, 2)
 
 song_a, song_b = st.session_state.battle
 
-edit = st.checkbox("✏️ Edit Current Songs")
+st.title("🎤 Arena Battle")
 
 col1, col2 = st.columns(2)
 
-# SONG A
 with col1:
     st.subheader("🔵 Song A")
-    if edit:
-        song_a["title"]  = st.text_input("Title A", song_a["title"], key="ta")
-        song_a["artist"] = st.text_input("Artist A", song_a["artist"], key="aa")
-        song_a["genre"]  = st.text_input("Genre A", song_a["genre"], key="ga")
-    else:
-        st.markdown(f"**{song_a['title']}**")
-        st.caption(f"*{song_a['artist']}*")
-        st.caption(f"`{song_a['genre']}`")
+    st.markdown(f"**{song_a['title']}**  \n*{song_a['artist']}*  \n_{song_a['genre']}_")
 
-# SONG B
 with col2:
     st.subheader("🟣 Song B")
-    if edit:
-        song_b["title"]  = st.text_input("Title B", song_b["title"], key="tb")
-        song_b["artist"] = st.text_input("Artist B", song_b["artist"], key="ab")
-        song_b["genre"]  = st.text_input("Genre B", song_b["genre"], key="gb")
-    else:
-        st.markdown(f"**{song_b['title']}**")
-        st.caption(f"*{song_b['artist']}*")
-        st.caption(f"`{song_b['genre']}`")
-
-# 🔥 Boss Fight Warning
-if song_a["title"] in BOSS_SONGS or song_b["title"] in BOSS_SONGS:
-    boss_fight_effect()
+    st.markdown(f"**{song_b['title']}**  \n*{song_b['artist']}*  \n_{song_b['genre']}_")
 
 st.markdown("---")
-st.header("🎚️ Rate This Battle")
+st.subheader("🎚️ Rate the Battle")
 
 ratingsA, ratingsB = {}, {}
+for f in rating_fields:
+    l, r = st.columns(2)
+    ratingsA[f] = l.slider(f"{f} – A", 1, 10, 5)
+    ratingsB[f] = r.slider(f"{f} – B", 1, 10, 5)
 
-for field in rating_fields:
-    c1, c2 = st.columns(2)
-    ratingsA[field] = c1.slider(f"{field} – A", 1, 10, 5)
-    ratingsB[field] = c2.slider(f"{field} – B", 1, 10, 5)
+if st.button("Submit Ratings"):
+    sA = sum(ratingsA.values())
+    sB = sum(ratingsB.values())
+    winner = song_a["title"] if sA > sB else song_b["title"] if sB > sA else "Tie"
 
-if st.button("🎤 Submit Ratings"):
-    scoreA = total_score(ratingsA)
-    scoreB = total_score(ratingsB)
-    winner = song_a["title"] if scoreA > scoreB else song_b["title"] if scoreB > scoreA else "Tie"
-    time_now = datetime.now().strftime("%Y-%m-%d %H:%M")
-
-    # Save to leaderboard
-    lb = load_lb()
-    row = {
-        "Time": time_now,
-        "Nickname": st.session_state.nickname,
+    new_row = {
+        "Time": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "Song A": song_a["title"],
         "Song B": song_b["title"],
         "Winner": winner,
-        "Score A": scoreA,
-        "Score B": scoreB
+        "Score A": sA,
+        "Score B": sB
     }
-    row.update(ratingsA if scoreA >= scoreB else ratingsB)
-    lb = pd.concat([lb, pd.DataFrame([row])], ignore_index=True)
-    save_lb(lb)
 
-    # Save to Hall of Legends
-    hall = load_hall()
-    if winner != "Tie":
-        if winner in hall["Song"].values:
-            hall.loc[hall["Song"] == winner, "Win Count"] += 1
-        else:
-            hall = pd.concat([hall, pd.DataFrame([{"Song": winner, "Win Count": 1}])], ignore_index=True)
-        save_hall(hall)
-
-    # Trigger celebration + next battle
-    st.session_state.history.append(f"{song_a['title']} vs {song_b['title']} — Winner: {winner} ({scoreA}-{scoreB})")
-    st.success(f"🔥 Winner: {winner}!")
-    show_confetti()
-    pick_two_songs()
+    df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
+    df.to_csv(file, index=False)
+    st.success(f"✅ Winner: {winner}")
+    st.balloons()
+    st.session_state.battle = random.sample(st.session_state.songs, 2)
     st.experimental_rerun()
