@@ -1,30 +1,29 @@
-# Hall.py – Hall of Legends
 import streamlit as st
 import pandas as pd
-from utils.storage import load_hall
-from utils.effects import get_rank_emoji
+import os
 
-st.set_page_config(page_title="Hall of Legends", layout="centered")
-
+st.set_page_config(page_title="Hall of Legends")
 st.title("👑 Hall of Legends")
-st.caption("Songs that dominated the arena and earned their crown.")
 
-hall = load_hall()
-
-if hall.empty:
-    st.info("No legends yet. Win battles to unlock this hall.")
+file = "data/leaderboard.csv"
+if not os.path.exists(file):
+    st.info("No battles yet.")
     st.stop()
 
-# Add rank emoji
-def rank_label(wins):
-    if wins >= 20: return "💎 Cosmic Tier"
-    elif wins >= 10: return "👑 Legendary"
-    elif wins >= 5: return "🔥 Boss Slayer"
-    elif wins >= 3: return "🥇 Rising Star"
-    else: return "🎵 Challenger"
+df = pd.read_csv(file)
+if df.empty:
+    st.info("No battles yet.")
+    st.stop()
 
-hall["Rank"] = hall["Win Count"].apply(rank_label)
+hall = df["Winner"].value_counts().reset_index()
+hall.columns = ["Song", "Wins"]
 
-# Sort and show
-hall_sorted = hall.sort_values("Win Count", ascending=False).reset_index(drop=True)
-st.dataframe(hall_sorted, use_container_width=True)
+def emoji(wins):
+    if wins >= 10: return "💎"
+    elif wins >= 5: return "👑"
+    elif wins >= 3: return "🔥"
+    else: return "🎵"
+
+hall["Tier"] = hall["Wins"].apply(emoji)
+
+st.dataframe(hall, use_container_width=True)
