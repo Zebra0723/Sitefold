@@ -1,3 +1,8 @@
+import streamlit as st
+st.set_page_config(page_title="Battle")  # THIS IS REQUIRED
+
+st.title("🎤 Arena Battle")
+st.write("You made it to the BATTLE page!")
 # pages/Battle.py — Fully Debugged Arena Battle Page
 
 import streamlit as st
