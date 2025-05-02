@@ -1,4 +1,9 @@
 import streamlit as st
+st.set_page_config(page_title="Battle")  # 🔥 This line is required!
+
+st.title("🎤 Arena Battle")
+st.write("The arena is now live. You’re inside Battle.py!")
+import streamlit as st
 st.set_page_config(page_title="Battle")  # THIS IS REQUIRED
 
 st.title("🎤 Arena Battle")
