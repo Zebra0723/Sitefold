@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(
     page_title="SONGARENA ULTIMATE",
@@ -10,27 +11,27 @@ st.caption("Only one track will survive. But many will fight.")
 
 st.markdown("---")
 
-# 🔘 Buttons for navigation
+# 🔘 Top-level navigation
 col1, col2 = st.columns(2)
 
 with col1:
     if st.button("🎤 Enter a Battle"):
-        st.switch_page("pages/Battle.py")
+        switch_page("Battle")
 
     if st.button("➕ Add Songs"):
-        st.switch_page("pages/AddSong.py")
+        switch_page("AddSong")
 
 with col2:
     if st.button("👑 View Hall of Legends"):
-        st.switch_page("pages/Hall.py")
+        switch_page("Hall")
 
     if st.button("📊 Song Stats"):
-        st.switch_page("pages/SongStats.py")
+        switch_page("SongStats")
 
-# 🛠 God-mode panel
+# 🛠 God-mode
 st.markdown("---")
 if st.button("🛠 God-Mode Panel"):
-    st.switch_page("pages/Reset.py")
+    switch_page("Reset")
 
 st.markdown("---")
 st.caption("Built by YOU. Ruled by LEGENDS. 👑💾🔥")
