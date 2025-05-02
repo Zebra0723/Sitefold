@@ -1,12 +1,18 @@
 import streamlit as st
 
+# 🔥 FORCE SIDEBAR TO APPEAR
 st.set_page_config(
-    page_title="SONGARENA START",
+    page_title="SONGARENA",
     layout="wide",
-    initial_sidebar_state="expanded"  # 🔥 this line is the magic
+    initial_sidebar_state="expanded"
 )
 
-st.title("🚀 SongArena Start Page")
-st.caption("Use the sidebar to navigate manually.")
+# 🔥 FAKE SIDEBAR CONTENT TO MAKE IT RENDER
+with st.sidebar:
+    st.markdown("## 🧭 Navigation Menu")
+    st.markdown("Use the sidebar links at the top to switch pages!")
 
-st.markdown("Go to the top-left menu ➜ select ‘Battle’ to launch the arena.")
+# 🏠 HOME CONTENT
+st.title("🚀 Welcome to SONGARENA")
+st.caption("Choose a page from the sidebar to begin your journey.")
+st.markdown("👈 Use the sidebar on the left to access battles, stats, and more!")
