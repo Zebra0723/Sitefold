@@ -1,0 +1,124 @@
+/* Sitefold — interface pieces
+   Browser and device frames, accordions, segmented controls, form fields. */
+
+/* ---------- browser frame ---------- */
+.brw{
+  background:var(--paper);border:1px solid var(--line);
+  display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 1px 1px rgba(20,18,15,.03),0 18px 42px -28px rgba(20,18,15,.45);
+}
+.brw-bar{
+  display:flex;align-items:center;gap:10px;padding:9px 12px;flex:none;
+  background:color-mix(in srgb,var(--paper) 88%,var(--ink));
+  border-bottom:1px solid var(--line-soft);
+}
+.brw-dots{display:flex;gap:5px;flex:none}
+.brw-dots i{width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--ink) 20%,transparent)}
+.brw-url{
+  flex:1;min-width:0;text-align:center;font:400 9.5px/1.6 var(--mono);letter-spacing:.04em;
+  color:var(--ink-faint);background:color-mix(in srgb,var(--ink) 6%,transparent);
+  padding:3px 10px;border-radius:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.brw-body{flex:1;min-height:0;overflow:hidden;position:relative;background:var(--paper)}
+
+/* ---------- device frames ---------- */
+.dev-phone{
+  --r:26px;
+  border:1px solid var(--line);border-radius:var(--r);padding:7px;
+  background:linear-gradient(160deg,#2a2723,#141210);
+  box-shadow:0 24px 50px -30px rgba(20,18,15,.6);
+  position:relative;
+}
+.dev-phone::before{
+  content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);
+  width:38%;height:5px;border-radius:9px;background:rgba(255,255,255,.14);z-index:3;
+}
+.dev-phone .scr{border-radius:calc(var(--r) - 8px);overflow:hidden;background:var(--paper);position:relative;height:100%}
+
+/* ---------- accordion ---------- */
+.acc-item{border-top:1px solid var(--line)}
+.acc-item:last-child{border-bottom:1px solid var(--line)}
+.acc-btn{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:clamp(18px,2.2vw,30px) 0;text-align:left;
+  font-size:clamp(1.05rem,1.7vw,1.5rem);font-family:var(--display);letter-spacing:-.015em;line-height:1.2;
+  transition:color .35s var(--ease-soft);
+}
+.acc-btn:hover{color:var(--accent)}
+.acc-ico{position:relative;width:14px;height:14px;flex:none}
+.acc-ico::before,.acc-ico::after{
+  content:"";position:absolute;inset:50% 0 auto;height:1px;background:currentColor;
+  transition:transform .5s var(--ease),opacity .3s;
+}
+.acc-ico::after{transform:rotate(90deg)}
+.acc-btn[aria-expanded="true"] .acc-ico::after{transform:rotate(0);opacity:0}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.acc-panel[data-open="true"]{grid-template-rows:1fr}
+.acc-panel > div{overflow:hidden}
+.acc-panel p{padding-bottom:clamp(18px,2.4vw,32px);max-width:62ch;color:var(--ink-soft)}
+
+/* ---------- segmented control ---------- */
+.seg{display:inline-flex;border:1px solid var(--line);padding:3px;
+  background:color-mix(in srgb,var(--paper-tint) 60%,transparent);position:relative}
+.seg button{
+  position:relative;z-index:2;padding:.62em 1.1em;font-size:.78rem;letter-spacing:.02em;
+  color:var(--ink-soft);transition:color .35s var(--ease-soft);white-space:nowrap;
+}
+.seg button[aria-selected="true"]{color:var(--paper)}
+.seg-pill{position:absolute;z-index:1;top:3px;bottom:3px;background:var(--ink);
+  transition:left .55s var(--ease),width .55s var(--ease)}
+
+/* ---------- form fields ---------- */
+.field{position:relative;display:block}
+.field input,.field textarea,.field select{
+  width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);
+  padding:1.5em 0 .7em;font-size:1.02rem;color:var(--ink);
+  transition:border-color .35s var(--ease-soft);
+}
+.field textarea{resize:vertical;min-height:120px;line-height:1.5}
+.field > span{
+  position:absolute;left:0;top:1.5em;font-size:1rem;color:var(--ink-faint);pointer-events:none;
+  transform-origin:left top;transition:transform .4s var(--ease),color .35s;
+}
+.field input:focus ~ span,.field textarea:focus ~ span,
+.field input:not(:placeholder-shown) ~ span,.field textarea:not(:placeholder-shown) ~ span{
+  transform:translateY(-1.55em) scale(.72);
+}
+.field input:focus,.field textarea:focus{outline:0;border-bottom-color:var(--accent)}
+.field .err{display:block;font:500 11px/1.4 var(--mono);letter-spacing:.05em;color:var(--accent);
+  padding-top:8px;opacity:0;transition:opacity .3s;font-style:normal}
+.field.invalid .err{opacity:1}
+.field.invalid input,.field.invalid textarea{border-bottom-color:var(--accent)}
+
+.chip{
+  display:inline-flex;align-items:center;gap:.6em;padding:.7em 1.05em;border:1px solid var(--line);
+  font-size:.85rem;cursor:pointer;transition:border-color .3s,background-color .3s,color .3s;background:transparent;
+}
+.chip:hover{border-color:var(--ink)}
+.chip input{position:absolute;opacity:0;width:0;height:0}
+.chip .dot{width:6px;height:6px;border:1px solid var(--ink-faint);border-radius:50%;transition:.3s;flex:none}
+.chip:has(input:checked){background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip:has(input:checked) .dot{background:var(--accent);border-color:var(--accent)}
+.chip:has(input:focus-visible){outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- numbers ---------- */
+.stat{display:flex;flex-direction:column;gap:6px}
+.stat b{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5vw,4.2rem);line-height:1;letter-spacing:-.03em}
+.stat span{font:500 10px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* ---------- range ---------- */
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:1px;background:var(--line);outline:0}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--ink);cursor:grab;
+  border:4px solid var(--paper);box-shadow:0 0 0 1px var(--line);transition:background-color .3s,scale .2s;
+}
+input[type=range]:active::-webkit-slider-thumb{cursor:grabbing;scale:1.15;background:var(--accent)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--ink);border:0;cursor:grab}
+input[type=range]:focus-visible::-webkit-slider-thumb{background:var(--accent)}
+
+/* ---------- texture ---------- */
+.grain{position:relative}
+.grain::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}

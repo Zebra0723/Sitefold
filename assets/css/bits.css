@@ -1,0 +1,12 @@
+/* Sitefold — small shared pieces used by forms and panels */
+.dm-done{display:grid;gap:12px;justify-items:start;padding:clamp(20px,3vw,30px);
+  border:1px solid var(--accent);background:var(--accent-wash)}
+.dm-done h4{font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.2vw,1.7rem);letter-spacing:-.02em}
+.dm-done p{color:var(--ink-soft);max-width:52ch}
+.dm-chip{padding:.55em .9em;border:1px solid var(--line);font-size:.8rem;transition:.3s var(--ease-soft);white-space:nowrap}
+.dm-chip:hover{border-color:var(--ink)}
+.dm-chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.dm-hint{font:400 12px/1.5 var(--mono);letter-spacing:.04em;color:var(--ink-faint)}
+.dm-grip{position:absolute;top:0;bottom:0;right:-16px;width:32px;display:grid;place-items:center;cursor:ew-resize;touch-action:none}
+.dm-grip i{width:4px;height:52px;background:var(--accent);display:block;border-radius:3px;transition:height .3s}
+.dm-grip:hover i{height:74px}
