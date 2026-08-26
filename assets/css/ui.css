@@ -52,9 +52,9 @@
 }
 .acc-ico::after{transform:rotate(90deg)}
 .acc-btn[aria-expanded="true"] .acc-ico::after{transform:rotate(0);opacity:0}
-.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
-.acc-panel[data-open="true"]{grid-template-rows:1fr}
-.acc-panel > div{overflow:hidden}
+.acc-panel{display:grid;grid-template-rows:minmax(0,0fr);overflow:hidden;transition:grid-template-rows .6s var(--ease)}
+.acc-panel[data-open="true"]{grid-template-rows:minmax(0,1fr)}
+.acc-panel > div{overflow:hidden;min-height:0}
 .acc-panel p{padding-bottom:clamp(18px,2.4vw,32px);max-width:62ch;color:var(--ink-soft)}
 
 /* ---------- segmented control ---------- */
