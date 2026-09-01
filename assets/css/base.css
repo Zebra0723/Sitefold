@@ -375,20 +375,22 @@ section{position:relative}
 
 /* ---------- DailyOS lockup ---------- */
 .parent{
-  display:flex;align-items:center;gap:.55em;margin-left:clamp(12px,1.6vw,22px);padding-left:clamp(12px,1.6vw,22px);
+  display:flex;align-items:center;gap:.5em;margin-left:clamp(12px,1.6vw,22px);padding-left:clamp(12px,1.6vw,22px);
   border-left:1px solid var(--line);color:var(--ink-faint);
-  font:500 9.5px/1.35 var(--mono);letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;
-  transition:color .35s var(--ease-soft);
+  font:500 9.5px/1 var(--mono);letter-spacing:.11em;text-transform:uppercase;white-space:nowrap;
 }
-.parent b{font-weight:500;color:var(--ink-soft);transition:color .35s var(--ease-soft)}
-.nav:hover .parent,.nav:hover .parent b{color:var(--ink)}
-.dos-mark{width:15px;height:15px;flex:none;overflow:visible}
-.parent .dos-mark{transition:transform .6s var(--ease)}
-.nav:hover .parent .dos-mark{transform:rotate(-8deg)}
-@media (max-width:1240px){.parent span{display:none}}
+.parent-t{transition:color .35s var(--ease-soft)}
+.nav:hover .parent-t{color:var(--ink-soft)}
+.parent-logo{display:inline-flex;align-items:center;transition:opacity .3s var(--ease-soft),transform .5s var(--ease)}
+.parent-logo img{height:18px;width:auto;display:block}
+.parent-logo:hover{opacity:.72;transform:translateY(-1px)}
+.parent-logo:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media (max-width:1240px){.parent-t{display:none}}
 @media (max-width:1080px){.parent{margin-left:10px;padding-left:10px}}
-.nav-light .nav:not(.solid) .parent,.nav-light .nav:not(.solid) .parent b{color:rgba(244,240,232,.7)}
-.menu-parent{color:rgba(242,239,232,.45)}
+@media (max-width:520px){.parent{display:none}}
 .foot-parent{display:inline-flex;align-items:center;gap:.7em}
 .foot-parent .dos-mark{width:14px;height:14px;color:rgba(242,239,232,.6)}
 .foot-parent b{font-weight:500;color:rgba(242,239,232,.72)}
+.foot-parent a{text-decoration:none}
+.foot-parent a:hover b{color:var(--paper)}
+.menu-parent{color:rgba(242,239,232,.45)}
