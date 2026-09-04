@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /c/
+Allow: /
+
+Sitemap: https://sitefoldwebsites.vercel.app/sitemap.xml
