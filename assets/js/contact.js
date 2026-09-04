@@ -1,7 +1,7 @@
 /* Sitefold — the seven-step enquiry.
    Enquiries are sent to the address below. Change it here and the whole
    form follows. */
-const ENQUIRY_EMAIL = 'general@dailyos.uk';
+const ENQUIRY_EMAIL = 'sitefold@dailyos.uk';
 
 (() => {
   const form = document.getElementById('ct-form');
@@ -101,7 +101,7 @@ const ENQUIRY_EMAIL = 'general@dailyos.uk';
       '',
       ...answers().map(([k, v]) => `${k}: ${v || '—'}`),
       '',
-      'Sent from sitefoldwebsites.vercel.app',
+      'Sent from sitefold.dailyos.uk',
     ].join('\n');
   };
 

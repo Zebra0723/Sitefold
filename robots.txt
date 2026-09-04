@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /c/
 Allow: /
 
-Sitemap: https://sitefoldwebsites.vercel.app/sitemap.xml
+Sitemap: https://sitefold.dailyos.uk/sitemap.xml

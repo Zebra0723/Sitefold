@@ -64,7 +64,7 @@
       live.dataset.src = b.dataset.page;
       live.querySelector('iframe')?.remove();
       $('#ex-p').textContent = b.dataset.name;
-      $('#ex-url').textContent = 'sitefoldwebsites.vercel.app' + b.dataset.page.replace(/\/$/, '');
+      $('#ex-url').textContent = 'sitefold.dailyos.uk' + b.dataset.page.replace(/\/$/, '');
       window.sfLive?.build(live);
     });
   }
