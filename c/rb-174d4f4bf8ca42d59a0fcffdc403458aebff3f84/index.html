@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-US">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rose Blossom Photography — Senior, child &amp; family photography in Genesee County</title>
-<meta name="description" content="Senior portraits, children, families, weddings and newborns in Genesee County, Michigan. Ten years behind the camera, sessions priced for real families.">
+<title>Rose Blossom Photography — a homepage concept</title>
+<meta name="description" content="A homepage concept for Rose Blossom Photography, Genesee County, Michigan. Prepared by Sitefold.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#f7fafc">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%234a91c0'/%3E%3Cpath d='M16 9c3.4 0 5.6 2.2 5.6 5.1 0 3.6-3 6.3-5.6 8.9-2.6-2.6-5.6-5.3-5.6-8.9C10.4 11.2 12.6 9 16 9z' fill='%23fff' opacity='.92'/%3E%3C/svg%3E">
@@ -13,201 +13,104 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500&display=swap">
 <style>
 :root{
-  --ground:#f7fafc;
-  --wash:#e9f2f8;
-  --sky-100:#d5e8f3;
-  --sky-300:#a9cee4;
-  --sky-500:#4a91c0;
-  --sky-700:#2b6489;
-  --ink:#14293a;
-  --slate:#5d7386;
-  --hair:rgba(20,41,58,.13);
-  --hair-soft:rgba(20,41,58,.07);
-  --blush:#f0dcd8;
-  --display:"Marcellus",Georgia,serif;
-  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
-  --pad:clamp(20px,5vw,80px);
-  --maxw:1400px;
-  --ease:cubic-bezier(.22,1,.28,1);
+  --ground:#f7fafc; --wash:#e9f2f8; --sky-100:#d5e8f3; --sky-300:#a9cee4;
+  --sky-500:#4a91c0; --sky-700:#2b6489; --ink:#14293a; --slate:#5d7386;
+  --hair:rgba(20,41,58,.13); --hair-soft:rgba(20,41,58,.07); --blush:#f0dcd8;
+  --display:"Marcellus",Georgia,serif; --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  --pad:clamp(20px,5vw,80px); --maxw:1300px; --ease:cubic-bezier(.22,1,.28,1);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{
-  margin:0;background:var(--ground);color:var(--ink);
-  font-family:var(--sans);font-weight:300;
-  font-size:clamp(15px,.5vw + 13.6px,17px);line-height:1.65;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-weight:300;
+  font-size:clamp(15px,.5vw + 13.6px,17px);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
-h1,h2,h3,p,figure,blockquote{margin:0}
+h1,h2,h3,p{margin:0}
 ul{margin:0;padding:0;list-style:none}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--sky-500);outline-offset:4px}
 .wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
-.d{font-family:var(--display);font-weight:400;letter-spacing:.02em;line-height:1.1}
 .lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--sky-700);font-weight:400}
 .muted{color:var(--slate)}
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.6em;border-radius:100px;
+  background:var(--sky-500);color:#fff;font-size:.84rem;letter-spacing:.08em;text-transform:uppercase;
+  transition:background-color .35s,transform .35s var(--ease);white-space:nowrap}
+.btn:hover{background:var(--sky-700);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--hair)}
+.btn.ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 
-/* concept bar */
-.concept{
-  background:var(--ink);color:#dce8f0;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  padding:11px var(--pad);display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;align-items:center;
-}
-.concept a{color:#fff;border-bottom:1px solid rgba(255,255,255,.4)}
+.concept{background:var(--ink);color:#dce8f0;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  padding:11px var(--pad);display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;align-items:center}
 .concept span:last-child{color:#8fb3c9}
 
-/* nav */
 .nav{position:sticky;top:0;z-index:50;background:rgba(247,250,252,.86);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--hair-soft)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:18px}
 .brand{font-family:var(--display);font-size:clamp(1.05rem,1.5vw,1.3rem);letter-spacing:.14em;text-transform:uppercase}
 .brand em{font-style:normal;color:var(--sky-500)}
-.nav ul{display:flex;gap:clamp(16px,2.4vw,34px);align-items:center}
-.nav ul a{font-size:.84rem;letter-spacing:.06em;color:var(--slate);transition:color .3s}
-.nav ul a:hover{color:var(--ink)}
-.btn{
-  display:inline-flex;align-items:center;gap:.6em;padding:.92em 1.5em;border-radius:100px;
-  background:var(--sky-500);color:#fff;font-size:.84rem;letter-spacing:.08em;text-transform:uppercase;
-  transition:background-color .35s,transform .35s var(--ease);white-space:nowrap;
-}
-.btn:hover{background:var(--sky-700);transform:translateY(-2px)}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--hair)}
-.btn.ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-@media (max-width:820px){.nav ul{display:none}}
+.nav a.mail{font-size:.82rem;letter-spacing:.06em;color:var(--slate);transition:color .3s}
+.nav a.mail:hover{color:var(--ink)}
+@media (max-width:600px){.nav a.mail{display:none}}
 
-/* hero */
-.hero{position:relative;min-height:clamp(560px,86svh,900px);display:grid;place-items:center;text-align:center;
-  overflow:hidden;padding:clamp(60px,10vh,120px) 0}
-.hero-sky{position:absolute;inset:0;
-  background:
-    radial-gradient(120% 80% at 50% 120%, #ffffff 0%, rgba(255,255,255,0) 60%),
-    radial-gradient(90% 60% at 18% 10%, var(--blush) 0%, rgba(240,220,216,0) 62%),
-    linear-gradient(178deg, var(--sky-300) 0%, var(--sky-100) 38%, var(--ground) 78%);
-}
-.hero-sky::after{
-  content:"";position:absolute;inset:0;opacity:.5;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
-}
-.hero-in{position:relative;z-index:2;display:grid;gap:clamp(20px,3vh,34px);justify-items:center}
-.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,7.4vw,5.6rem);line-height:1.02;
+.hero{position:relative;min-height:clamp(480px,72svh,760px);display:grid;place-items:center;text-align:center;
+  overflow:hidden;padding:clamp(56px,9vh,110px) 0}
+.hero-sky{position:absolute;inset:0;background:
+  radial-gradient(120% 80% at 50% 120%,#fff 0%,rgba(255,255,255,0) 60%),
+  radial-gradient(90% 60% at 18% 10%,var(--blush) 0%,rgba(240,220,216,0) 62%),
+  linear-gradient(178deg,var(--sky-300) 0%,var(--sky-100) 38%,var(--ground) 78%)}
+.hero-sky::after{content:"";position:absolute;inset:0;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E")}
+.hero-in{position:relative;z-index:2;display:grid;gap:clamp(18px,3vh,30px);justify-items:center}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6.6vw,4.9rem);line-height:1.04;
   letter-spacing:.06em;text-transform:uppercase;text-wrap:balance}
-.hero h1 span{display:block;font-size:.42em;letter-spacing:.34em;color:var(--sky-700);margin-bottom:.9em}
-.hero p{max-width:44ch;font-size:clamp(1rem,1.2vw,1.18rem);color:var(--slate);text-wrap:pretty}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:6px}
-.scroll{position:absolute;bottom:26px;left:50%;translate:-50% 0;z-index:2;font-size:10px;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--sky-700);display:grid;justify-items:center;gap:8px}
-.scroll i{display:block;width:1px;height:38px;background:linear-gradient(var(--sky-500),transparent);animation:drop 2.6s ease-in-out infinite}
-@keyframes drop{0%,100%{opacity:.3;transform:scaleY(.6);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+.hero h1 span{display:block;font-size:.4em;letter-spacing:.32em;color:var(--sky-700);margin-bottom:.9em}
+.hero p{max-width:46ch;font-size:clamp(1rem,1.2vw,1.16rem);color:var(--slate);text-wrap:pretty}
 
-/* generic section */
-.sec{padding-block:clamp(64px,10vw,150px)}
-.head{display:grid;gap:16px;max-width:56ch;margin-bottom:clamp(34px,5vw,64px)}
-.head h2{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,4.2vw,3.2rem);line-height:1.1;text-wrap:balance}
-.head p{color:var(--slate)}
-.center{margin-inline:auto;text-align:center;justify-items:center}
+.sec{padding-block:clamp(60px,9vw,130px)}
+.about{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(26px,4vw,72px);align-items:center}
+.about-plate{grid-column:1/6;aspect-ratio:4/5;position:relative;overflow:hidden;border-radius:2px;background:var(--wash)}
+.about-plate::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(70% 60% at 34% 24%,rgba(255,255,255,.85) 0%,rgba(255,255,255,0) 55%),
+  linear-gradient(158deg,#8fb9d6 0%,#c8a99f 46%,#efdcd2 100%)}
+.about-plate::after{content:"";position:absolute;inset:0;opacity:.45;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E")}
+.about-txt{grid-column:7/13;display:grid;gap:20px}
+.about-txt h2{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,3.6vw,2.9rem);line-height:1.14;text-wrap:balance}
+.sig{font-family:var(--display);font-size:1.3rem;color:var(--sky-700)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 34px;padding-top:10px;border-top:1px solid var(--hair);margin-top:4px}
+.facts div{display:grid;gap:2px}
+.facts b{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1;color:var(--sky-700)}
+.facts span{font-size:.82rem;color:var(--slate)}
+@media (max-width:860px){.about-plate,.about-txt{grid-column:1/-1}.about-plate{aspect-ratio:3/2}}
 
-/* intro */
-.intro{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(24px,4vw,64px);align-items:center}
-.intro-plate{grid-column:1/6;aspect-ratio:4/5;border-radius:2px;position:relative;overflow:hidden}
-.intro-txt{grid-column:7/13;display:grid;gap:20px}
-.intro-txt h2{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,3.6vw,2.8rem);line-height:1.16}
-.sig{font-family:var(--display);font-size:1.35rem;color:var(--sky-700)}
-@media (max-width:860px){.intro-plate,.intro-txt{grid-column:1/-1}.intro-plate{aspect-ratio:3/2}}
+/* Sitefold panel — deliberately not part of Robin's site */
+.sf{background:var(--ink);color:#cddced;padding-block:clamp(56px,8vw,110px)}
+.sf-in{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,80px);align-items:start}
+.sf-lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#7fa8c6}
+.sf h2{font-family:var(--display);font-weight:400;font-size:clamp(1.7rem,3.6vw,2.8rem);line-height:1.14;
+  color:#fff;margin:14px 0 16px;text-wrap:balance}
+.sf p{color:#a9c2d6;max-width:52ch}
+.sf-list{display:grid;gap:0;border-top:1px solid rgba(255,255,255,.16)}
+.sf-list li{display:grid;grid-template-columns:9.5em 1fr;gap:6px 18px;align-items:baseline;
+  padding:14px 0;border-bottom:1px solid rgba(255,255,255,.16)}
+@media (max-width:520px){.sf-list li{grid-template-columns:1fr}}
+.sf-list b{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7fa8c6;font-weight:400}
+.sf-list span{font-size:.96rem;color:#cddced}
+.sf-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.sf .btn{background:#fff;color:var(--ink)}
+.sf .btn:hover{background:var(--sky-300)}
+.sf .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.sf .btn.ghost:hover{background:#fff;color:var(--ink)}
+.swatches{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.swatches i{width:34px;height:34px;border-radius:50%;display:block;border:1px solid rgba(255,255,255,.25)}
+.sw-note{font-size:.84rem;color:#7fa8c6;margin-top:12px}
+@media (max-width:860px){.sf-in{grid-template-columns:1fr}}
 
-/* soft photographic plates */
-.plate{position:relative;overflow:hidden;border-radius:2px;background:var(--wash)}
-.plate::before{content:"";position:absolute;inset:0}
-.plate::after{
-  content:"";position:absolute;inset:0;opacity:.45;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
-}
-.p1::before{background:radial-gradient(70% 60% at 32% 22%,rgba(255,255,255,.85) 0%,rgba(255,255,255,0) 55%),linear-gradient(158deg,#8fb9d6 0%,#c8a99f 46%,#efdcd2 100%)}
-.p2::before{background:radial-gradient(62% 55% at 68% 28%,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 58%),linear-gradient(196deg,#6f9dc0 0%,#a9c6db 42%,#dfe9f1 100%)}
-.p3::before{background:radial-gradient(75% 60% at 42% 76%,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 56%),linear-gradient(142deg,#d9a99e 0%,#a8c3d8 58%,#cfe0ec 100%)}
-.p4::before{background:radial-gradient(66% 58% at 58% 26%,rgba(255,255,255,.82) 0%,rgba(255,255,255,0) 54%),linear-gradient(172deg,#93b7d2 0%,#e0c3b6 66%,#f2e6de 100%)}
-.p5::before{background:radial-gradient(72% 62% at 26% 62%,rgba(255,255,255,.78) 0%,rgba(255,255,255,0) 58%),linear-gradient(188deg,#5f90b6 0%,#b6cfe1 52%,#e8d5cd 100%)}
-.p6::before{background:radial-gradient(68% 56% at 56% 40%,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 60%),linear-gradient(150deg,#b3a6c6 0%,#9dbdd6 48%,#e5cfc7 100%)}
-
-/* sessions */
-.sessions{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,28px)}
-.session{display:grid;gap:14px;align-content:start}
-.session .plate{aspect-ratio:3/4}
-.session h3{font-family:var(--display);font-weight:400;font-size:1.3rem}
-.session p{font-size:.92rem;color:var(--slate)}
-.session .n{font-size:11px;letter-spacing:.2em;color:var(--sky-500)}
-@media (max-width:900px){.sessions{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.sessions{grid-template-columns:1fr}}
-
-/* gallery */
-.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,1.8vw,24px)}
-.gal .plate:nth-child(1){grid-column:1/7;aspect-ratio:4/5}
-.gal .plate:nth-child(2){grid-column:7/13;aspect-ratio:3/2;align-self:start}
-.gal .plate:nth-child(3){grid-column:7/10;aspect-ratio:1}
-.gal .plate:nth-child(4){grid-column:10/13;aspect-ratio:1}
-.gal .plate:nth-child(5){grid-column:1/5;aspect-ratio:1}
-.gal .plate:nth-child(6){grid-column:5/13;aspect-ratio:16/9}
-@media (max-width:820px){
-  .gal .plate:nth-child(n){grid-column:span 6;aspect-ratio:1}
-  .gal .plate:nth-child(1){grid-column:1/-1;aspect-ratio:4/5}
-}
-
-/* quiet band */
-.band{background:linear-gradient(180deg,var(--wash),var(--ground));border-block:1px solid var(--hair-soft)}
-.stat{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,60px);text-align:center}
-.stat b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,6vw,4.4rem);line-height:1;color:var(--sky-700)}
-.stat span{font-size:.9rem;color:var(--slate)}
-@media (max-width:700px){.stat{grid-template-columns:1fr;gap:28px}}
-
-/* what to expect */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,50px);counter-reset:s}
-.step{display:grid;gap:12px;align-content:start;padding-top:22px;border-top:1px solid var(--hair)}
-.step h3{font-family:var(--display);font-weight:400;font-size:1.25rem}
-.step p{font-size:.94rem;color:var(--slate)}
-.step .n{font-size:11px;letter-spacing:.2em;color:var(--sky-500)}
-@media (max-width:820px){.steps{grid-template-columns:1fr}}
-
-/* contact */
-.contact{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,90px);align-items:start}
-.form{display:grid;gap:20px}
-.field{display:grid;gap:7px}
-.field label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--slate)}
-.field input,.field textarea,.field select{
-  width:100%;padding:.92em 1.05em;border:1px solid var(--hair);border-radius:3px;background:#fff;
-  font-family:inherit;font-size:1rem;font-weight:300;color:var(--ink);transition:border-color .3s,box-shadow .3s;
-}
-.field textarea{resize:vertical;min-height:130px}
-.field input:focus,.field textarea:focus,.field select:focus{outline:0;border-color:var(--sky-500);box-shadow:0 0 0 3px rgba(74,145,192,.14)}
-.field .err{font-size:.8rem;color:#b4462f;min-height:1em;opacity:0;transition:opacity .25s}
-.field.bad .err{opacity:1}
-.field.bad input,.field.bad textarea{border-color:#b4462f}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.details{display:grid;gap:22px;align-content:start;padding:clamp(24px,3vw,40px);background:var(--wash);border-radius:3px}
-.details div{display:grid;gap:5px}
-.details dt{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-700)}
-.details dd{margin:0;font-size:1rem}
-.sent{display:none;padding:clamp(24px,3vw,36px);background:var(--wash);border-radius:3px;gap:12px}
-.sent.on{display:grid}
-.sent h3{font-family:var(--display);font-weight:400;font-size:1.5rem}
-@media (max-width:860px){.contact{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
-
-/* closing */
-.close{position:relative;text-align:center;padding-block:clamp(80px,13vw,180px);overflow:hidden}
-.close-sky{position:absolute;inset:0;background:
-  radial-gradient(90% 70% at 50% 110%,#fff 0%,rgba(255,255,255,0) 60%),
-  linear-gradient(180deg,var(--ground),var(--sky-100) 55%,var(--sky-300))}
-.close-in{position:relative;z-index:2;display:grid;gap:24px;justify-items:center}
-.close h2{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5.6vw,4rem);line-height:1.08;text-wrap:balance}
-
-/* footer */
-.foot{background:var(--ink);color:#c8d9e4;padding-block:clamp(40px,6vw,70px)}
-.foot-in{display:flex;flex-wrap:wrap;gap:22px 40px;justify-content:space-between;align-items:center}
-.foot .brand{color:#fff}
-.foot a{color:#c8d9e4;transition:color .3s}
+.foot{background:#0e1f2c;color:#6f8ea5;padding-block:26px;font-size:.8rem;letter-spacing:.04em}
+.foot-in{display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between;align-items:center}
+.foot a{color:#9db9cc}
 .foot a:hover{color:#fff}
-.foot small{font-size:.8rem;color:#7f9cb0;letter-spacing:.04em}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -219,22 +122,14 @@ a{color:inherit;text-decoration:none}
 <body>
 
 <div class="concept">
-  <span>Website concept for Rose Blossom Photography &mdash; prepared by Sitefold for Robin</span>
-  <span>Photographs shown are placeholders &middot; <a href="https://sitefoldwebsites.vercel.app" target="_blank" rel="noopener">sitefold</a></span>
+  <span>Homepage concept for Rose Blossom Photography &mdash; prepared by Sitefold for Robin</span>
+  <span>Photograph shown is a placeholder</span>
 </div>
 
 <header class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#top">Rose <em>Blossom</em></a>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Portfolio</a></li>
-        <li><a href="#investment">Investment</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <a class="btn" href="#contact">Enquire</a>
+    <a class="mail" href="mailto:RoseBlossomPhotos@outlook.com">RoseBlossomPhotos@outlook.com</a>
   </div>
 </header>
 
@@ -245,159 +140,59 @@ a{color:inherit;text-decoration:none}
     <div class="wrap hero-in">
       <h1><span>Genesee County, Michigan</span>The years go<br>faster than<br>you think</h1>
       <p>Senior portraits, children and families &mdash; photographed by Robin, ten years behind the camera, at a price real families can actually say yes to.</p>
-      <div class="hero-cta">
-        <a class="btn" href="#contact">Book a session</a>
-        <a class="btn ghost" href="#sessions">See the work</a>
-      </div>
     </div>
-    <div class="scroll" aria-hidden="true"><i></i><span>Scroll</span></div>
   </section>
 
   <section class="sec">
-    <div class="wrap intro">
-      <div class="intro-plate plate p1 rv" aria-hidden="true"></div>
-      <div class="intro-txt rv">
-        <p class="lbl">Hello</p>
+    <div class="wrap about">
+      <div class="about-plate rv" aria-hidden="true"></div>
+      <div class="about-txt rv">
+        <p class="lbl">About Robin</p>
         <h2>I took my first photograph at thirteen, and never really put the camera down.</h2>
         <p class="muted">It was on a trip to Michigan&rsquo;s Adventure, and I knew straight away this was the thing I loved. That was more than ten years ago. I&rsquo;m Robin &mdash; I have three children of my own, and I&rsquo;ve been photographing families here in Genesee County for the last three years.</p>
-        <p class="muted">Most of my clients come back, which is the part I&rsquo;m proudest of. My oldest is usually first in line for a photoshoot, so don&rsquo;t be surprised if she tags along and ends up modelling.</p>
+        <p class="muted">Seniors and children are my specialty, though I also shoot weddings, newborns, families and pets. Most of my clients come back, which is the part I&rsquo;m proudest of. My oldest is usually first in line for a photoshoot, so don&rsquo;t be surprised if she tags along and ends up modelling.</p>
         <p class="sig">Robin &mdash; Rose Blossom Photography</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="sessions" style="padding-top:0">
-    <div class="wrap">
-      <div class="head rv">
-        <p class="lbl">Portfolio</p>
-        <h2>Seniors and children are my specialty. They are not all I shoot.</h2>
-        <p>Ten years in, I have photographed most of what a family needs photographing. Ask about anything that isn&rsquo;t listed.</p>
-      </div>
-      <div class="sessions">
-        <article class="session rv"><div class="plate p2"></div><span class="n">01</span><h3>Senior portraits</h3><p>The last photographs of them as a kid, and the first as whoever they are becoming. Locations around the county, outfits changed as often as you like.</p></article>
-        <article class="session rv"><div class="plate p3"></div><span class="n">02</span><h3>Children</h3><p>Photographed at their pace, doing what they actually do. I have three of my own, so nothing they do will surprise me.</p></article>
-        <article class="session rv"><div class="plate p4"></div><span class="n">03</span><h3>Families</h3><p>Everyone in one frame, briefly, before somebody moves out or grows up. Indoors, outdoors, or wherever you are most yourselves.</p></article>
-        <article class="session rv"><div class="plate p5"></div><span class="n">04</span><h3>Weddings</h3><p>The whole day or just the parts that matter most to you, documented without taking over the room.</p></article>
-        <article class="session rv"><div class="plate p1"></div><span class="n">05</span><h3>Newborns</h3><p>In the first few weeks, while they are still curled up and sleeping through most of it. Slow sessions with breaks for whatever comes up.</p></article>
-        <article class="session rv"><div class="plate p6"></div><span class="n">06</span><h3>Pets &amp; portraits</h3><p>Animals are family too. I also photograph boudoir sessions, privately and on your terms &mdash; just ask.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="gallery" style="padding-top:0">
-    <div class="wrap">
-      <div class="head rv">
-        <p class="lbl">Gallery</p>
-        <h2>Recent work</h2>
-      </div>
-      <div class="gal">
-        <div class="plate p3 rv"></div><div class="plate p2 rv"></div><div class="plate p6 rv"></div>
-        <div class="plate p1 rv"></div><div class="plate p4 rv"></div><div class="plate p5 rv"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap sec">
-      <div class="stat rv">
-        <div><b>10+</b><span>years behind the camera</span></div>
-        <div><b>3</b><span>children of my own, so nothing fazes me</span></div>
-        <div><b>Genesee</b><span>County, Michigan &mdash; and happy to travel</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="about">
-    <div class="wrap intro">
-      <div class="intro-txt rv" style="grid-column:1/7">
-        <p class="lbl">About Robin</p>
-        <h2>Photographs your family will actually put on the wall.</h2>
-        <p class="muted">Rose Blossom Photography is just me: one photographer, working across Genesee County, doing this because I love it rather than because it scaled well.</p>
-        <p class="muted">Nobody needs to be in matching outfits and the house does not need tidying. The best photographs I take are almost always the ones nobody was posing for.</p>
-        <a class="btn ghost" href="#contact" style="justify-self:start;margin-top:6px">Ask me anything</a>
-      </div>
-      <div class="intro-plate plate p6 rv" style="grid-column:8/13" aria-hidden="true"></div>
-    </div>
-  </section>
-
-  <section class="sec" id="expect" style="padding-top:0">
-    <div class="wrap">
-      <div class="head rv">
-        <p class="lbl">What to expect</p>
-        <h2>How a session actually goes</h2>
-      </div>
-      <div class="steps">
-        <div class="step rv"><span class="n">01</span><h3>Tell me what you need</h3><p>Send a message with roughly what you are after and when. I will come back with dates and exactly what it costs &mdash; no packages you have to decode.</p></div>
-        <div class="step rv"><span class="n">02</span><h3>The shoot</h3><p>Wherever suits: your house, a park, downtown, the back yard. We take the time it takes, and I will tell you what to do with your hands.</p></div>
-        <div class="step rv"><span class="n">03</span><h3>Your gallery</h3><p>A private online gallery of edited photographs to download, share and print however you like. Most people come back the following year.</p></div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="sec band" id="investment">
-    <div class="wrap">
-      <div class="head center rv">
-        <p class="lbl">Investment</p>
-        <h2>Priced for families, not for portfolios</h2>
-        <p>I keep sessions at a reasonable cost on purpose, and I work with people on a budget. If money is the only thing standing between you and photographs of your kids, say so &mdash; we will find something that works.</p>
-        <a class="btn ghost" href="#contact" style="margin-top:8px">Ask for the price list</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="contact">
-    <div class="wrap">
-      <div class="head rv">
-        <p class="lbl">Enquire</p>
-        <h2>Let&rsquo;s find a date</h2>
-        <p>Senior season and the holidays book up first. Send a message and I will answer it myself.</p>
-      </div>
-      <div class="contact">
-        <div>
-          <form class="form rv" id="rbForm" novalidate>
-            <div class="two">
-              <div class="field"><label for="n">Your name</label><input id="n" name="name" type="text" required><span class="err">Please add your name</span></div>
-              <div class="field"><label for="e">Email</label><input id="e" name="email" type="email" required><span class="err">Check that address and try again</span></div>
-            </div>
-            <div class="two">
-              <div class="field"><label for="t">Session</label>
-                <select id="t" name="session"><option>Senior portraits</option><option>Children</option><option>Family</option><option>Wedding</option><option>Newborn</option><option>Pets</option><option>Boudoir</option><option>Not sure yet</option></select></div>
-              <div class="field"><label for="d">Roughly when</label><input id="d" name="when" type="text" placeholder="e.g. sometime in October"></div>
-            </div>
-            <div class="field"><label for="m">Anything you would like me to know</label><textarea id="m" name="message"></textarea></div>
-            <button class="btn" type="submit" style="justify-self:start">Send enquiry</button>
-          </form>
-          <div class="sent" id="rbSent" tabindex="-1">
-            <h3>Thank you, <span id="rbName">there</span>.</h3>
-            <p class="muted">Your message has been sent. I answer every one myself, usually with a couple of dates and a straight answer on price.</p>
-          </div>
+        <div class="facts">
+          <div><b>10+</b><span>years behind the camera</span></div>
+          <div><b>3</b><span>children of my own</span></div>
+          <div><b>Genesee</b><span>County, Michigan</span></div>
         </div>
-        <dl class="details rv">
-          <div><dt>Based in</dt><dd>Genesee County, Michigan</dd></div>
-          <div><dt>Email</dt><dd><a href="mailto:RoseBlossomPhotos@outlook.com">RoseBlossomPhotos@outlook.com</a></dd></div>
-          <div><dt>Specialty</dt><dd>Senior portraits and children</dd></div>
-          <div><dt>Also shooting</dt><dd>Weddings, newborns, families, pets and boudoir</dd></div>
-        </dl>
       </div>
     </div>
   </section>
 
-  <section class="close">
-    <div class="close-sky" aria-hidden="true"></div>
-    <div class="wrap close-in">
-      <p class="lbl">Rose Blossom Photography</p>
-      <h2>Next year they will be<br>taller than this photograph.</h2>
-      <a class="btn" href="#contact">Book a session</a>
+  <section class="sf">
+    <div class="wrap sf-in">
+      <div>
+        <p class="sf-lbl">From Sitefold</p>
+        <h2>This is one section. The full website carries on from here.</h2>
+        <p>What you are looking at is a taste &mdash; the opening of a homepage, built for Rose Blossom specifically rather than picked off a template. Carry on with Sitefold and we build the rest of it: your portfolio, the sessions you offer, pricing, and a contact form that sends enquiries straight to your inbox.</p>
+        <div class="sf-cta">
+          <a class="btn" href="mailto:general@dailyos.uk?subject=Rose%20Blossom%20Photography%20website">Continue with Sitefold</a>
+          <a class="btn ghost" href="https://sitefoldwebsites.vercel.app" target="_blank" rel="noopener">See what else we do</a>
+        </div>
+      </div>
+      <div>
+        <ul class="sf-list">
+          <li><b>Colours</b><span>Not sure about the blues? The palette is entirely yours to choose &mdash; tell us what you had in mind and we will show you the same page in it, at no charge.</span></li>
+          <li><b>Typefaces</b><span>Same again. These were chosen to suit the work, but nothing here is fixed.</span></li>
+          <li><b>Your photographs</b><span>The image above is a placeholder. Your own work replaces it, at full size and loading fast.</span></li>
+          <li><b>One page or several</b><span>This works beautifully as a single scrolling page, or we can spread it across separate pages if you would rather.</span></li>
+        </ul>
+        <div class="swatches" aria-hidden="true">
+          <i style="background:#4a91c0"></i><i style="background:#e0b7a8"></i><i style="background:#7b8f6d"></i>
+          <i style="background:#2f2f33"></i><i style="background:#b58a5e"></i><i style="background:#8a6f9e"></i>
+        </div>
+        <p class="sw-note">A few directions we could take it instead.</p>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="brand" href="#top">Rose <em>Blossom</em></a>
-    <small>Senior, child &amp; family photography &middot; Genesee County, Michigan</small>
-    <small>Concept design by Sitefold</small>
+    <span>Concept for Rose Blossom Photography &middot; Genesee County, Michigan</span>
+    <span>Designed by <a href="https://sitefoldwebsites.vercel.app" target="_blank" rel="noopener">Sitefold</a> &middot; <a href="mailto:general@dailyos.uk">general@dailyos.uk</a></span>
   </div>
 </footer>
 
@@ -407,26 +202,9 @@ a{color:inherit;text-decoration:none}
     es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
   document.querySelectorAll('.rv').forEach((el, i) => {
-    el.style.transitionDelay = (i % 4) * 70 + 'ms';
+    el.style.transitionDelay = (i % 3) * 90 + 'ms';
     io.observe(el);
   });
-
-  const f = document.getElementById('rbForm'), sent = document.getElementById('rbSent');
-  f.addEventListener('submit', (ev) => {
-    ev.preventDefault();
-    let ok = true;
-    f.querySelectorAll('[required]').forEach((i) => {
-      const bad = !i.checkValidity();
-      i.closest('.field').classList.toggle('bad', bad);
-      if (bad && ok) { i.focus(); ok = false; }
-    });
-    if (!ok) return;
-    document.getElementById('rbName').textContent = (f.name.value || '').split(' ')[0] || 'there';
-    f.style.display = 'none';
-    sent.classList.add('on');
-    sent.focus();
-  });
-  f.addEventListener('input', (e) => e.target.closest('.field')?.classList.remove('bad'));
 })();
 </script>
 </body>
